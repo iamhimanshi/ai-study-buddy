@@ -21,12 +21,14 @@ Students can upload PDFs, ask questions, generate quizzes, create flashcards, an
 To help evaluators quickly explore the application, you may use the following demo account:
 
 **Username:** example
-
 **Email:** example@gmail.com
-
 **Password:** 12345678
 
-> **Note:** If the demo account is unavailable, you can create a new account using the Sign Up page and start using the platform immediately.
+> **Note:** 
+
+1. If while signup it shows network error, please try again after a few seconds. The backend server may take some time to start up.
+
+2.If the demo account is unavailable, you can create a new account using the Sign Up page and start using the platform immediately.
 
 ---
 
@@ -228,39 +230,34 @@ AI Generated Response
 
 ## Login Page
 
-(Add Screenshot Here)
+![alt text](<Screenshot 2026-06-24 211035.png>)
 
 ---
 
 ## Dashboard
 
-(Add Screenshot Here)
+![alt text](<Screenshot 2026-06-24 210912.png>)
 
 ---
 
 ## Chat With PDF
 
-(Add Screenshot Here)
+![alt text](<Screenshot 2026-06-24 210854.png>)
 
 ---
 
 ## Quiz Generator
 
-(Add Screenshot Here)
+![alt text](<Screenshot 2026-06-24 210949.png>)
 
 ---
 
 ## Flashcards
 
-(Add Screenshot Here)
+![alt text](<Screenshot 2026-06-24 211015.png>)
 
 ---
 
-## Study Planner
-
-(Add Screenshot Here) 
-
----
 
 # 🚀 Installation
 
@@ -365,8 +362,9 @@ This project demonstrates:
 B.Tech Computer Science
 IBM Internship Project
 
-GitHub: PASTE_GITHUB_LINK
-LinkedIn: PASTE_LINKEDIN_LINK
+
+GitHub: https://github.com/iamhimanshi
+LinkedIn: www.linkedin.com/in/himanshi80
 
 ---
 
