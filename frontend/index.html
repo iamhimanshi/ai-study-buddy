@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Study Buddy</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">AI Study Buddy</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link" data-page="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-page="chat">Chat</a>
+                <a href="#" class="nav-link" data-page="quiz">Quiz</a>
+                <a href="#" class="nav-link" data-page="flashcards">Flashcards</a>
+                <a href="#" class="nav-link" data-page="study-planner">Study Planner</a>
+                <button class="btn-logout" id="logoutBtn">Logout</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Pages -->
+    <div class="page-container">
+        <!-- Login Page -->
+        <div id="loginPage" class="page active">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2 class="auth-title">Welcome to AI Study Buddy</h2>
+                    <p class="auth-subtitle">Sign in to access your study materials</p>
+                    
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="signup">Sign Up</button>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="loginEmail" placeholder="your@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required />
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Login</button>
+                        <p class="auth-error" id="loginError"></p>
+                    </form>
+                    
+                    <!-- Signup Form -->
+                    <form id="signupForm" class="auth-form hidden">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="signupName" placeholder="John Doe" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="signupEmail" placeholder="your@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="signupPassword" placeholder="••••••••" required />
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Create Account</button>
+                        <p class="auth-error" id="signupError"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboardPage" class="page hidden">
+            <div class="page-header">
+                <h1>Dashboard</h1>
+                <p>Welcome, <span id="userNameDisplay">User</span>!</p>
+            </div>
+            
+            <div class="upload-section">
+                <div class="upload-card">
+                    <h3>Upload PDF</h3>
+                    <p>Upload your study notes (max 25 pages)</p>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="file-drop-zone" id="dropZone">
+                            <span class="drop-icon">📄</span>
+                            <p>Drag & drop your PDF here</p>
+                            <p class="drop-hint">or click to browse</p>
+                            <input type="file" id="pdfFile" accept=".pdf" required />
+                        </div>
+                        <button type="submit" class="btn-primary">Upload PDF</button>
+                    </form>
+                    <div id="uploadStatus" class="upload-status"></div>
+                </div>
+            </div>
+            
+            <div class="pdf-list-section">
+                <h3>Your PDFs</h3>
+                <div id="pdfList" class="pdf-grid">
+                    <p class="empty-message">No PDFs uploaded yet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Page -->
+        <div id="chatPage" class="page hidden">
+            <div class="page-header">
+                <h1>Chat with PDF</h1>
+                <p>Ask questions about your uploaded PDFs</p>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <h4>Select PDF</h4>
+                    <div id="chatPdfList" class="chat-pdf-list">
+                        <p class="empty-message">No PDFs available</p>
+                    </div>
+                </div>
+                
+                <div class="chat-main">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-welcome">
+                            <p>👋 Select a PDF and start asking questions!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" placeholder="Ask a question..." disabled />
+                        <button id="chatSendBtn" disabled>Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quizPage" class="page hidden">
+            <div class="page-header">
+                <h1>Quiz Generator</h1>
+                <p>Generate quizzes from your PDFs</p>
+            </div>
+            
+            <div class="quiz-container">
+                <div class="quiz-controls">
+                    <select id="quizPdfSelect">
+                        <option value="">Select a PDF</option>
+                    </select>
+                    <input type="number" id="quizCount" value="5" min="3" max="10" />
+                    <button class="btn-primary" id="generateQuizBtn">Generate Quiz</button>
+                </div>
+                
+                <div id="quizContent" class="quiz-content">
+                    <p class="empty-message">Generate a quiz to see questions here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flashcards Page -->
+        <div id="flashcardsPage" class="page hidden">
+            <div class="page-header">
+                <h1>Flashcards</h1>
+                <p>Create flashcards from your PDFs</p>
+            </div>
+            
+            <div class="flashcard-controls">
+                <select id="flashcardPdfSelect">
+                    <option value="">Select a PDF</option>
+                </select>
+                <button class="btn-primary" id="generateFlashcardsBtn">Generate Flashcards</button>
+            </div>
+            
+            <div id="flashcardContainer" class="flashcard-container">
+                <p class="empty-message">Generate flashcards to start studying</p>
+            </div>
+        </div>
+
+        <!-- Study Planner Page -->
+        <div id="studyPlannerPage" class="page hidden">
+            <div class="page-header">
+                <h1>Study Planner</h1>
+                <p>Create a personalized study plan</p>
+            </div>
+            
+            <div class="planner-container">
+                <div class="planner-form">
+                    <div class="form-group">
+                        <label>Subjects (comma separated)</label>
+                        <input type="text" id="plannerSubjects" placeholder="OS, DBMS, CN, DAA" />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Days Available</label>
+                            <input type="number" id="plannerDays" value="20" min="1" />
+                        </div>
+                        <div class="form-group">
+                            <label>Hours per Day</label>
+                            <input type="number" id="plannerHours" value="2" min="0.5" step="0.5" />
+                        </div>
+                    </div>
+                    <button class="btn-primary" id="generatePlanBtn">Generate Study Plan</button>
+                </div>
+                
+                <div id="plannerResult" class="planner-result">
+                    <p class="empty-message">Your study plan will appear here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
