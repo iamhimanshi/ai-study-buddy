@@ -6,13 +6,23 @@ Students can upload PDFs, ask questions, generate quizzes, create flashcards, an
 
 ---
 
+## 🎥 Demo Video
+
+A complete demonstration of the AI Study Buddy application is available here:
+
+**📹 Demo Video:** https://drive.google.com/file/d/1XK1ntZYQH76Xne9Dp_cKkBN-pgdDP1XY/view?usp=sharing
+
+> **Note:** 
+The application was successfully developed and tested in the local environment. During deployment, an environment-specific compatibility issue with the PyMuPDF package on the hosting platform prevented successful backend deployment. Therefore, a complete demonstration video has been included to showcase all project functionalities.
+---
+
 # 🌐 Live Demo
 
 ### Frontend
-🔗 [Live Application](PASTE_FRONTEND_LINK_HERE)
+🔗 [Live Application](FRONTEND_LINK)
 
 ### Backend API
-🔗 [API Documentation](PASTE_BACKEND_LINK_HERE)
+🔗 [API Documentation](BACKEND_LINK)
 
 ---
 
